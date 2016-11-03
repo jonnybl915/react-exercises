@@ -1,4 +1,30 @@
-const Backbone = require('Backbone')
+const Backbone = require('backbone')
+const React = require('react')
+const ReactDOM = require('react-dom')
+//======================
+// React View Imports
+const ViewCounterComponent = require('./view-counter.js');
 
-console.log(Backbone)
-document.querySelector('#app-container').innerHTML = `<h1>YOLO</h1>`
+const AppRouter = Backbone.Router.extend({
+
+   routes: {
+      "counter" : "showCounter",
+      "select" : "showSelect",
+      "" : "showHomeView"
+   },
+
+   showCounter: function(){
+     ReactDOM.render( <ViewCounterComponent/> , document.querySelector('#app-container') )
+   },
+
+   showHomeView: function(){
+     document.querySelector( '#app-container').innerHTML = `<i class= fa fa-thumbs-up fa-5x></i>`
+   },
+
+   initialize: function(){
+      Backbone.history.start()
+   }
+})
+
+
+new AppRouter()
