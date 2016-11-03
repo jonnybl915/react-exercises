@@ -10,3 +10,15 @@ h1 {
 	text-align: center;
 	color: fuchsia;
 }
+
+.counter-container {
+	display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
